@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karate Classes | Your Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --fg: #f0f0f0;
+      --nav-hover: rgba(255, 255, 255, 0.1);
+      --card-bg: #1a1a1a;
+      --text-muted: #bbb;
+      --accent: #2b72ff;
+    }
+
+    body.light {
+      --bg: #f5f5f5;
+      --fg: #111;
+      --nav-hover: rgba(0, 0, 0, 0.08);
+      --card-bg: #ffffff;
+      --text-muted: #444;
+      --accent: #2b72ff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111;
+      color: white;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    nav a:hover {
+      background: var(--nav-hover);
+      color: var(--fg);
+    }
+
+    .mode-toggle {
+      cursor: pointer;
+      font-size: 0.85rem;
+      background: var(--nav-hover);
+      color: var(--fg);
+      border: none;
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px 40px;
+      background: linear-gradient(135deg, var(--bg), var(--card-bg));
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      background: var(--card-bg);
+      padding: 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body class="dark">
+
+  <header>
+    <h1>Your Business</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mma.html">MMA</a>
+      <a href="kickboxing.html">Kickboxing</a>
+      <a href="karate.html">Karate</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <button class="mode-toggle" onclick="toggleMode()">🌙 Toggle</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Traditional Karate Classes</h2>
+    <p>Learn discipline, focus, and self-defense through the art of Karate — open to all ages and skill levels.</p>
+  </section>
+
+  <section class="section">
+    <h3>What Is Karate?</h3>
+    <p>Karate is a traditional Japanese martial art that emphasizes striking, self-control, and mental clarity. It teaches structured techniques such as punches, kicks, blocks, and kata (forms) to develop both body and mind.</p>
+
+    <h3>Program Overview</h3>
+    <p>Our Karate program combines the best of tradition with modern training. Students progress through belt levels, learning both physical techniques and life skills like confidence, respect, and perseverance.</p>
+
+    <h3>Who Should Join?</h3>
+    <ul>
+      <li>Children (ages 5+), teens, and adults</li>
+      <li>Beginners and advanced martial artists</li>
+      <li>Anyone seeking structure, focus, and personal development</li>
+      <li>Parents seeking confidence-building programs for their kids</li>
+    </ul>
+
+    <h3>What You’ll Learn</h3>
+    <ul>
+      <li>Stances, strikes, blocks, and kicks</li>
+      <li>Kata (forms) for focus and memory</li>
+      <li>Point sparring and controlled contact</li>
+      <li>Defense against grabs and takedowns</li>
+      <li>Respect, etiquette, and focus development</li>
+    </ul>
+
+    <h3>Benefits of Karate</h3>
+    <ul>
+      <li>🥋 Increased confidence and discipline</li>
+      <li>🧠 Better focus and mental clarity</li>
+      <li>🛡 Improved self-defense awareness</li>
+      <li>💪 Enhanced strength, coordination, and balance</li>
+      <li>👨‍👩‍👧‍👦 Family-friendly environment</li>
+    </ul>
+
+    <h3>Sample Class Times</h3>
+    <p>
+      - Monday 9:00 AM – Karate (Kids, Ages 6–10)<br>
+      - Monday 6:30 PM – Karate (Teens)<br>
+      - Wednesday 8:00 PM – Karate (Adults)<br>
+      - Thursday 6:30 PM – Forms & Sparring<br>
+      - Saturday 10:00 AM – All-Ages Karate Workshop
+    </p>
+
+    <h3>Meet Your Instructors</h3>
+    <p><strong>Coach Hana:</strong> 4th-Degree Black Belt with 20+ years of teaching experience. Expert in kata and youth development.</p>
+    <p><strong>Coach Mark:</strong> 2nd-Degree Black Belt. Leads adult and advanced sparring programs with a focus on self-discipline and strength.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Your Business. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("light");
+    }
+  </script>
+
+  <!-- ✅ Botpress v2.3 Chatbot Scripts -->
+  <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/04/12/17/20250412172230-2LP5RVS8.js"></script>
+
+</body>
+</html>
+
