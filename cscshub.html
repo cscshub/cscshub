@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSCShub - Chatbot Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --fg: #f0f0f0;
+      --nav-hover: rgba(255, 255, 255, 0.1);
+      --card-bg: #1a1a1a;
+      --text-muted: #bbb;
+      --accent: #1a1a1a;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111;
+      color: white;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    nav a:hover {
+      background: var(--nav-hover);
+      color: var(--fg);
+    }
+    .mode-toggle {
+      cursor: pointer;
+      font-size: 0.85rem;
+      background: var(--nav-hover);
+      color: var(--fg);
+      border: none;
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
+    .tab-container {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .tab {
+      background: var(--card-bg);
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .tab label {
+      display: block;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #222;
+      color: white;
+    }
+    .tab input {
+      display: none;
+    }
+    .tab-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  padding: 0 1.5rem;
+  background: var(--card-bg);
+  color: var(--text-muted);
+}
+.tab input:checked ~ .tab-content {
+  max-height: 5000px; /* Large enough for full content */
+  padding: 1rem 1.5rem;
+}
+1.5rem;
+    }
+    .tab-content p {
+      margin-bottom: 1rem;
+    }
+    footer {
+      background: var(--card-bg);
+      padding: 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Studio</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mma.html">MMA</a>
+      <a href="kickboxing.html">Kickboxing</a>
+      <a href="karate.html">Karate</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="cscshub.html">CSCShub</a>
+      <button class="mode-toggle" onclick="document.body.classList.toggle('light')">🌙 Toggle</button>
+    </nav>
+  </header>
+
+  <div class="tab-container">
+    <div class="tab">
+      <input type="checkbox" id="tab-about">
+      <label for="tab-about">📌 About CSCShub</label>
+      <div class="tab-content">
+        <p>CSCShub helps martial arts businesses grow with AI-powered chatbots that answer questions, capture leads, and streamline communication — all without you lifting a finger.</p>
+        <p>We build, train, and deploy your custom chatbot using advanced AI frameworks, integrated directly into your site or CRM tools.</p>
+      </div>
+    </div>
+
+    <div class="tab">
+      <input type="checkbox" id="tab-pricing">
+      <label for="tab-pricing">💰 Pricing</label>
+      <div class="tab-content">
+        <p><strong>Basic Plan:</strong> $199 setup + $99/month — Includes a fully working chatbot that answers FAQs and collects leads.</p>
+        <p><strong>Pro Plan:</strong> $499 setup + $199/month — Includes the chatbot + dynamic scheduling, marketing capture, and custom memory.</p>
+        <p><strong>Contact Me:</strong> cscshubs@gmail.com </p>
+      </div>
+    </div>
+
+    <div class="tab">
+      <input type="checkbox" id="tab-faq">
+      <label for="tab-faq">❓ Frequently Asked Questions</label>
+      <div class="tab-content">
+     
+        <p><strong>Can I update the chatbot myself?</strong><br>No need. I will take care of any updates or changed that you need!.</p>
+        <p><strong>Does it work on mobile?</strong><br>Absolutely — all our bots are fully responsive and mobile-optimized.</p>
+        <p><strong>Do I need technical knowledge to use it?</strong><br>
+Nope! We handle the setup for you. You’ll get a link to access.</p>
+
+<p><strong>How long does setup take?</strong><br>
+Most bots are ready within 3-5 business days, depending on customization.</p>
+
+<p><strong>Can I pause or cancel at any time?</strong><br>
+Yes. Monthly plans can be paused or canceled anytime. No long-term contracts.</p>
+
+<p><strong>Will it slow down my website?</strong><br>
+Not at all. Our bots are lightweight and optimized for fast loading across all devices.</p>
+
+Email cscshubs@gmail.com for any more questions!
+
+      </div>
+    </div>
+
+    <div class="tab">
+      <input type="checkbox" id="tab-legal">
+      <label for="tab-legal">📜 Legal Info</label>
+      <div class="tab-content">
+        <p><strong>Terms of Service:</strong><br><ul>
+  <li>You grant CSCShub permission to deploy and manage chatbot services on your behalf.</li>
+  <li>All content you provide (such as pricing, FAQs, and branding) must be accurate and up to date.</li>
+  <li>CSCShub is not liable for any loss of business, data, revenue, or reputation resulting from chatbot miscommunication, automation errors, or downtime.</li>
+  <li>Service uptime is targeted at 99% annually, but outages may occur due to maintenance, hosting issues, or third-party API failures beyond CSCShub’s control.</li>
+  <li>CSCShub reserves the right to update the platform, service features, or terms at any time. Clients will be notified of major changes.</li>
+  <li>You are responsible for monitoring bot activity and reporting inaccurate responses or technical issues.</li>
+  <li>CSCShub is not responsible for client-side website integration issues unless contracted explicitly for implementation support.</li>
+  <li>Violation of these terms, including misuse or misrepresentation of the service, may result in immediate suspension or termination of services.</li>
+  <li>Payment is due before services are rendered unless otherwise agreed upon in writing. Late or missing payments may result in service disruption.</li>
+  <li>CSCShub does not guarantee specific business outcomes (e.g., lead volume, conversions) and provides chatbot services "as-is."</li>
+</ul>.</p>
+        <p><strong>Privacy Policy:</strong><br>
+  <li>We collect only the necessary information to provide chatbot services, such as contact details, website content, and business-related data.</li>
+  <li>We do not sell, trade, or rent client data to any third party for marketing or advertising purposes.</li>
+  <li>Data collected through the chatbot (e.g., user messages, lead forms) is stored securely and may be transmitted directly to the business for follow-up and service purposes.</li>
+  <li>Clients are responsible for how they use, store, or distribute any user data received from the chatbot.</li>
+  <li>CSCShub ensures secure data handling on its platforms but is not responsible for breaches or misuse once the data is handed off to the client.</li>
+  <li>All client content (branding, class schedules, FAQs, etc.) remains the intellectual property of the client and is not reused for other projects.</li>
+  <li>CSCShub uses secure, industry-standard cloud platforms to host chatbots and protect against unauthorized access or data loss.</li>
+  <li>We comply with applicable data protection regulations, including GDPR, where required.</li>
+  <li>Clients may request a data export or deletion at any time by contacting support.</li>
+  <li>By using CSCShub’s services, you consent to this privacy policy and data handling practices, including the forwarding of lead data to the business owner.</li></p>
+     
+     
+     
+     
+     
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 CSCShub. All rights reserved.
+  </footer>
+  
+    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/04/12/17/20250412172230-2LP5RVS8.js"></script>
+    
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Martial Arts Studio</title>
+  <title>Mock Martial Arts Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -14,16 +14,6 @@
       --text-muted: #bbb;
       --accent: #2b72ff;
     }
-
-    body.light {
-      --bg: #f5f5f5;
-      --fg: #111;
-      --nav-hover: rgba(0, 0, 0, 0.08);
-      --card-bg: #ffffff;
-      --text-muted: #444;
-      --accent: #2b72ff;
-    }
-
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -32,7 +22,6 @@
       line-height: 1.6;
       transition: background 0.3s, color 0.3s;
     }
-
     header {
       position: sticky;
       top: 0;
@@ -46,19 +35,16 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
-
     header h1 {
       font-size: 1.2rem;
       font-weight: 600;
       margin: 0;
     }
-
     nav {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     nav a {
       color: #ccc;
       text-decoration: none;
@@ -66,12 +52,10 @@
       border-radius: 8px;
       transition: background 0.2s ease;
     }
-
     nav a:hover {
       background: var(--nav-hover);
       color: var(--fg);
     }
-
     .mode-toggle {
       cursor: pointer;
       font-size: 0.85rem;
@@ -81,63 +65,42 @@
       padding: 5px 12px;
       border-radius: 8px;
     }
-
-    .hero {
-      text-align: center;
-      padding: 70px 20px 40px;
-      background: linear-gradient(135deg, var(--bg), var(--card-bg));
+    .schedule-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      max-width: 900px;
     }
-
-    .hero h2 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      color: var(--text-muted);
-    }
-
-    .cta-buttons {
-      margin-top: 30px;
-    }
-
-    .cta-buttons a {
-      text-decoration: none;
-      color: white;
+    .schedule-buttons button {
       background-color: var(--accent);
-      padding: 12px 20px;
-      border-radius: 12px;
-      margin: 0 10px;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
       font-weight: 500;
-      display: inline-block;
-      transition: 0.2s ease;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
-
-    .cta-buttons a:hover {
+    .schedule-buttons button:hover {
       background-color: #1d52c2;
+      transform: translateY(-2px);
     }
-
-    .section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .section h3 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-
-    .section p {
-      font-size: 1.05rem;
+    #scheduleDisplay {
+      text-align: center;
+      max-width: 700px;
+      margin: 2rem auto;
       color: var(--text-muted);
-      margin-bottom: 20px;
     }
-
+    #scheduleDisplay ul {
+      list-style: none;
+      padding: 0;
+    }
+    #scheduleDisplay li {
+      margin-bottom: 10px;
+    }
     footer {
       background: var(--card-bg);
       padding: 20px;
@@ -148,10 +111,9 @@
     }
   </style>
 </head>
-<body class="dark">
-
+<body>
   <header>
-    <h1>Your Studio</h1>
+    <h1>Mock Studio</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="mma.html">MMA</a>
@@ -159,151 +121,122 @@
       <a href="karate.html">Karate</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
-      <button class="mode-toggle" onclick="toggleMode()">🌙 Toggle</button>
+      <a href="cscshub.html">CSCShub</a>
+      <button class="mode-toggle" onclick="document.body.classList.toggle('light')">🌙 Toggle</button>
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Welcome to Your Martial Arts Studio</h2>
-    <p>
-      Transform your body, sharpen your mind, and gain real-world skills. We offer top-tier instruction in MMA, Kickboxing, and Karate — for beginners and experienced martial artists alike.
-    </p>
-    <div class="cta-buttons">
-      
-      <a href="contact.html">Contact Us</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <h3>About Our Studio</h3>
-    <p>(Your Studio) is a modern martial arts facility committed to personal growth through discipline, fitness, and skill. With expert coaches and a welcoming atmosphere, we support every student’s journey — whether you're here to get in shape, learn self-defense, or compete.</p>
-    
-    <h3>Programs We Offer</h3>
-    <p><strong>MMA:</strong> A hybrid system combining striking and grappling — great for self-defense, competition, and full-body fitness.</p>
-    <p><strong>Kickboxing:</strong> High-intensity cardio and striking classes that burn calories, tone muscle, and sharpen reflexes.</p>
-    <p><strong>Karate:</strong> A traditional martial art focused on discipline, technique, and inner balance. Ideal for youth and adults alike.</p>
-
-    <h3>Who It's For</h3>
-    <p>We welcome all ages and levels — children, teens, adults, and seniors. Whether you're completely new or looking to level up your skills, there's a class for you here.</p>
-
-    <h3>Why Choose Us?</h3>
-    <p>✔ Friendly and certified instructors</p>
-    <p>✔ Flexible class schedules (daytime, evenings, weekends)</p>
-    <p>✔ Modern, fully equipped facility</p>
-    <p>✔ Small class sizes for personal attention</p>
-    <p>✔ Trial classes available</p>
-  </section>
-<section class="section">
-  <h3>View Daily Class Schedule</h3>
-  <p>Select a day below to see detailed class times. Our classes run between 9:00 AM and 9:00 PM daily.</p>
-
-  <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
-    <button class="day-button" onclick="showSchedule('monday')">Monday</button>
-    <button class="day-button" onclick="showSchedule('tuesday')">Tuesday</button>
-    <button class="day-button" onclick="showSchedule('wednesday')">Wednesday</button>
-    <button class="day-button" onclick="showSchedule('thursday')">Thursday</button>
-    <button class="day-button" onclick="showSchedule('friday')">Friday</button>
-    <button class="day-button" onclick="showSchedule('saturday')">Saturday</button>
+<section class="hero" style="text-align: center; padding: 70px 20px 40px; background: linear-gradient(135deg, var(--bg), var(--card-bg));">
+  <h2 style="font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">Welcome to Mock Martial Arts Studio</h2>
+  <p style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; color: var(--text-muted);">
+    Transform your body, sharpen your mind, and gain real-world skills. We offer top-tier instruction in MMA, Kickboxing, and Karate — for beginners and experienced martial artists alike.
+  </p>
+  <div style="margin-top: 30px;">
+    <a href="contact.html" style="text-decoration: none; color: white; background-color: var(--accent); padding: 12px 20px; border-radius: 12px; font-weight: 500;">Contact Us</a>
   </div>
-
-  <div id="scheduleDisplay" style="margin-top: 20px;"></div>
-
-  <script>
-    const schedules = {
-      monday: [
-        ["9:00 AM", "Karate (Kids) – Ages 6–10 – Coach Hana"],
-        ["12:00 PM", "Kickboxing – All Levels – Coach Ray"],
-        ["5:00 PM", "MMA Fundamentals – Beginners – Coach Alex"],
-        ["6:30 PM", "Karate (Teens) – Ages 11–15 – Coach Hana"],
-        ["8:00 PM", "Karate (Adults) – All Ranks – Coach Mark"]
-      ],
-      tuesday: [
-        ["9:00 AM", "Kickboxing Conditioning – Coach Ray"],
-        ["12:00 PM", "Karate (Teens) – Coach Hana"],
-        ["5:00 PM", "Kickboxing (Advanced) – Coach Leo"],
-        ["6:30 PM", "MMA (Striking) – Coach Alex"],
-        ["8:00 PM", "Open Mat – Staff Supervised"]
-      ],
-      wednesday: [
-        ["9:00 AM", "Karate (Kids) – Coach Hana"],
-        ["12:00 PM", "Open Mat (Free Practice)"],
-        ["5:00 PM", "MMA Fundamentals – Coach Alex"],
-        ["6:30 PM", "Karate (Black Belt Class) – Coach Mark"],
-        ["8:00 PM", "Women’s Self Defense – Coach Nina"]
-      ],
-      thursday: [
-        ["9:00 AM", "Kickboxing (Beginners) – Coach Ray"],
-        ["12:00 PM", "Kickboxing (Teens) – Coach Leo"],
-        ["5:00 PM", "MMA (Grappling Focus) – Coach Alex"],
-        ["6:30 PM", "Karate (Forms & Sparring) – Coach Hana"],
-        ["8:00 PM", "Black Belt Sparring – Invite Only"]
-      ],
-      friday: [
-        ["9:00 AM", "Karate (Kids) – Coach Hana"],
-        ["12:00 PM", "Kickboxing – Coach Ray"],
-        ["5:00 PM", "MMA (Striking Drills) – Coach Alex"],
-        ["6:30 PM", "Mixed Skills – All Programs Open Gym"],
-        ["8:00 PM", "Youth Sparring – Coach Mark"]
-      ],
-      saturday: [
-        ["10:00 AM", "All-Ages Karate Workshop – Coach Hana"],
-        ["12:00 PM", "Kickboxing Power Class – Coach Ray"],
-        ["2:00 PM", "Youth MMA – Coach Alex"],
-        ["4:00 PM", "Self Defense Crash Course – Coach Nina"],
-        ["6:00 PM", "Open Sparring (All Levels) – Staff Supervised"]
-      ]
-    };
-
-    function showSchedule(day) {
-      const display = document.getElementById("scheduleDisplay");
-      const daySchedule = schedules[day];
-      display.innerHTML = `
-        <h4 style="margin-bottom: 10px;">${day.charAt(0).toUpperCase() + day.slice(1)} Classes</h4>
-        <ul style="list-style: none; padding: 0;">
-          ${daySchedule.map(([time, desc]) => `<li style="margin-bottom: 10px;"><strong>${time}</strong> — ${desc}</li>`).join('')}
-        </ul>
-      `;
-    }
-  </script>
-
-  <style>
-    .day-button {
-      padding: 10px 16px;
-      border-radius: 10px;
-      border: none;
-      background-color: var(--accent);
-      color: white;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-    .day-button:hover {
-      background-color: #1d52c2;
-    }
-    #scheduleDisplay h4 {
-      font-size: 1.3rem;
-      margin-top: 10px;
-    }
-    #scheduleDisplay li {
-      color: var(--text-muted);
-    }
-  </style>
 </section>
 
-   <footer>
-    &copy; 2025 (Your Studio). All rights reserved.
-  </footer>
+<section class="section" style="padding: 50px 20px; max-width: 1000px; margin: auto;">
+  <h3 style="font-size: 1.8rem; margin-bottom: 15px;">About Our Studio</h3>
+  <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px;">
+    Mock Martial Arts is a modern martial arts facility committed to personal growth through discipline, fitness, and skill. With expert coaches and a welcoming atmosphere, we support every student’s journey — whether you're here to get in shape, learn self-defense, or compete.
+  </p>
 
-  <!-- Optional: Dark/Light Mode Toggle -->
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle("light");
-    }
-  </script>
+  <h3 style="font-size: 1.8rem; margin-top: 30px;">Programs We Offer</h3>
+  <p><strong>MMA:</strong> A hybrid system combining striking and grappling — great for self-defense, competition, and full-body fitness.</p>
+  <p><strong>Kickboxing:</strong> High-intensity cardio and striking classes that burn calories, tone muscle, and sharpen reflexes.</p>
+  <p><strong>Karate:</strong> A traditional martial art focused on discipline, technique, and inner balance. Ideal for youth and adults alike.</p>
 
-  <!-- ✅ Botpress v2.3 Chatbot Scripts -->
-  <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
-  <script src="https://files.bpcontent.cloud/2025/04/12/17/20250412172230-2LP5RVS8.js"></script>
+  <h3 style="font-size: 1.8rem; margin-top: 30px;">Who It's For</h3>
+  <p>We welcome all ages and levels — children, teens, adults, and seniors. Whether you're completely new or looking to level up your skills, there's a class for you here.</p>
 
+  <h3 style="font-size: 1.8rem; margin-top: 30px;">Why Choose Us?</h3>
+  <ul style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+    <li>✔ Friendly and certified instructors</li>
+    <li>✔ Flexible class schedules (daytime, evenings, weekends)</li>
+    <li>✔ Modern, fully equipped facility</li>
+    <li>✔ Small class sizes for personal attention</li>
+    <li>✔ Trial classes available</li>
+  </ul>
+
+  <h3 style="font-size: 1.8rem; margin-top: 40px;">View Daily Class Schedule</h3>
+  <p style="font-size: 1.05rem; color: var(--text-muted);">Select a day below to see detailed class times. Our classes run between 9:00 AM and 9:00 PM daily.</p>
+</section>
+
+<div class="schedule-buttons">
+  <button onclick="showSchedule('monday')">Monday</button>
+  <button onclick="showSchedule('tuesday')">Tuesday</button>
+  <button onclick="showSchedule('wednesday')">Wednesday</button>
+  <button onclick="showSchedule('thursday')">Thursday</button>
+  <button onclick="showSchedule('friday')">Friday</button>
+  <button onclick="showSchedule('saturday')">Saturday</button>
+</div>
+
+<div id="scheduleDisplay"></div>
+
+<script>
+  const schedules = {
+    monday: [
+      ["9:00 AM", "Karate (Kids) – Ages 6–10 – Coach Hana"],
+      ["12:00 PM", "Kickboxing – All Levels – Coach Ray"],
+      ["5:00 PM", "MMA Fundamentals – Beginners – Coach Alex"],
+      ["6:30 PM", "Karate (Teens) – Ages 11–15 – Coach Hana"],
+      ["8:00 PM", "Karate (Adults) – All Ranks – Coach Mark"]
+    ],
+    tuesday: [
+      ["9:00 AM", "Kickboxing Conditioning – Coach Ray"],
+      ["12:00 PM", "Karate (Teens) – Coach Hana"],
+      ["5:00 PM", "Kickboxing (Advanced) – Coach Leo"],
+      ["6:30 PM", "MMA (Striking) – Coach Alex"],
+      ["8:00 PM", "Open Mat – Staff Supervised"]
+    ],
+    wednesday: [
+      ["9:00 AM", "Karate (Kids) – Coach Hana"],
+      ["12:00 PM", "Open Mat (Free Practice)"],
+      ["5:00 PM", "MMA Fundamentals – Coach Alex"],
+      ["6:30 PM", "Karate (Black Belt Class) – Coach Mark"],
+      ["8:00 PM", "Women’s Self Defense – Coach Nina"]
+    ],
+    thursday: [
+      ["9:00 AM", "Kickboxing (Beginners) – Coach Ray"],
+      ["12:00 PM", "Kickboxing (Teens) – Coach Leo"],
+      ["5:00 PM", "MMA (Grappling Focus) – Coach Alex"],
+      ["6:30 PM", "Karate (Forms & Sparring) – Coach Hana"],
+      ["8:00 PM", "Black Belt Sparring – Invite only"]
+    ],
+    friday: [
+      ["9:00 AM", "Karate (Kids) – Coach Hana"],
+      ["12:00 PM", "Kickboxing – Coach Ray"],
+      ["5:00 PM", "MMA (Striking Drills) – Coach Alex"],
+      ["6:30 PM", "Mixed Skills – All Programs Open Gym"],
+      ["8:00 PM", "Youth Sparring – Coach Mark"]
+    ],
+    saturday: [
+      ["10:00 AM", "All-Ages Karate Workshop – Coach Hana"],
+      ["12:00 PM", "Kickboxing Power Class – Coach Ray"],
+      ["2:00 PM", "Youth MMA – Coach Alex"],
+      ["4:00 PM", "Self Defense Crash Course – Coach Nina"],
+      ["6:00 PM", "Open Sparring (All Levels) – Staff Supervised"]
+    ]
+  };
+
+  function showSchedule(day) {
+    const display = document.getElementById("scheduleDisplay");
+    const daySchedule = schedules[day];
+    display.innerHTML = `
+      <h3>${day.charAt(0).toUpperCase() + day.slice(1)} Classes</h3>
+      <ul>
+        ${daySchedule.map(([time, desc]) => `<li><strong>${time}</strong> — ${desc}</li>`).join('')}
+      </ul>
+    `;
+  }
+  
+   });
+</script>
+
+    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/04/12/17/20250412172230-2LP5RVS8.js"></script>
+    
 </body>
 </html>
+
