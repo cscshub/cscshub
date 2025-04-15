@@ -3,221 +3,254 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mock Martial Arts Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>CSCSHub Pricing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0e0e0e;
-      --fg: #f0f0f0;
-      --nav-hover: rgba(255, 255, 255, 0.1);
-      --card-bg: #1a1a1a;
-      --text-muted: #bbb;
-      --accent: #2b72ff;
+      --bg: #0f0f0f;
+      --fg: #f9fafb;
+      --muted: #9ca3af;
+      --accent: #3b82f6;
+      --card: #1e1e1e;
     }
+
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
       color: var(--fg);
-      line-height: 1.6;
     }
+
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #111;
-      color: white;
-      padding: 8px 24px;
+      padding: 1rem 2rem;
+      background: var(--card);
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
-    header h1 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0;
-    }
-    nav {
+
+    .nav {
       display: flex;
-      align-items: center;
-      gap: 12px;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
-    nav a {
-      color: #ccc;
+
+    .nav a {
+      color: var(--fg);
       text-decoration: none;
-      padding: 5px 12px;
-      border-radius: 8px;
-      transition: background 0.2s ease;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
     }
-    nav a:hover {
-      background: var(--nav-hover);
-      color: var(--fg);
+
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
-    .mode-toggle {
-      cursor: pointer;
-      font-size: 0.85rem;
-      background: var(--nav-hover);
-      color: var(--fg);
-      border: none;
-      padding: 5px 12px;
-      border-radius: 8px;
+
+    h1, h2, h3 {
+      margin-bottom: 0.5rem;
     }
-    footer {
-      background: var(--card-bg);
-      padding: 20px;
-      text-align: center;
-      color: var(--text-muted);
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .pricing-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .plan {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .featured {
+      border: 2px solid var(--accent);
+    }
+
+    .price {
+      font-size: 1.6rem;
+      margin: 0.75rem 0;
+    }
+
+    .note {
       font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--muted);
     }
-    select {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 8px;
+
+    .why-choose, .about, .faq {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+
+    .why-choose ul {
+      padding-left: 1.2rem;
+    }
+
+    input {
+      padding: 0.4rem;
+      margin: 0.4rem 0;
+      border-radius: 6px;
       border: none;
       font-size: 1rem;
-      margin-bottom: 2rem;
     }
-    #scheduleDisplay ul {
-      list-style: none;
-      padding-left: 0;
+
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
     }
-    #scheduleDisplay li {
-      margin-bottom: 0.6rem;
+
+    #result {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    .legal-link {
+      text-align: center;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Mock dddStudio</h1>
-    <nav>
-      <a href="mockstudio.html">Home</a>
-      <a href="mma.html">MMA</a>
-      <a href="kickboxing.html">Kickboxing</a>
-      <a href="karate.html">Karate</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-      <a href="index.html">Chatbot Pricing</a>
-      <button class="mode-toggle" onclick="document.body.classList.toggle('light')">🌙 Toggle</button>
+    <nav class="nav">
+      
+   <a href="mocksite.html">→ Test Me! ← </a>
     </nav>
+    <h1>CSCSHub Chatbot Pricing</h1>
+    <p>Two powerful options. One smarter business.</p>
   </header>
 
-  <section style="text-align: center; padding: 70px 20px 40px; background: linear-gradient(135deg, var(--bg), var(--card-bg));">
-    <h2 style="font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">Welcome to Mock Martial Arts Studio</h2>
-    <p style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; color: var(--text-muted);">
-      This is just a mock website setup as a Demo for the Chatbot! <br> Please view the "CHATBOT PRICING" tab for more information on this product.
-    </p>
-    <div style="margin-top: 30px;">
-      <a href="contact.html" style="text-decoration: none; color: white; background-color: var(--accent); padding: 12px 20px; border-radius: 12px; font-weight: 500;">Contact Us</a>
+  <div class="container">
+    <div class="pricing-table">
+      <div class="plan basic">
+        <h3>Basic</h3>
+        <p class="price">$299 Setup + <span class="setup">$99/mo</span></p>
+        <p>AI assistant to guide users through your website seamlessly</p>
+        <p>Installed on your website</p>
+        <p>Light edits after launch</p>
+        <p>Email-only support</p>
+        <p class="note">Does include ongoing optimization</p>
+      </div>
+
+  <di<div class="plan premium featured" style="position: relative; border: 2px solid gold; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); background: linear-gradient(133deg, #1f1f1f, #2b2b2b);">
+  <div style="
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: gold;
+    color: black;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px gold;
+    letter-spacing: 0.5px;
+  ">Premium Tier</div>
+
+  <h3 style="color: gold;">Premium</h3>
+  <p class="price" style="color: #facc15;">$499 Setup + $199/mo</p>
+  <p>Tailored AI assistant with advanced logic</p>
+  <p>Full integration & hands-free updates</p>
+  <p>Priority white-glove support (24/7)</p>
+  <p>Performance analytics & ongoing optimization</p>
+  <p class="note" style="color: gold;">Designed for growth-minded pros</p>
+</div>
+
+
+
     </div>
-  </section>
 
-  <section style="padding: 50px 20px; max-width: 1000px; margin: auto;">
-    <h3 style="font-size: 1.8rem; margin-bottom: 15px;">About Our Studio</h3>
-    <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px;">
-      Mock Martial Arts is a modern martial arts facility committed to personal growth through discipline, fitness, and skill. With expert coaches and a welcoming atmosphere, we support every student’s journey — whether you're here to get in shape, learn self-defense, or compete.
-    </p>
+    <section class="why-choose">
+      <h2>Why Go Premium?</h2>
+      <p>You’re not buying a chatbot — you’re hiring a digital assistant who never sleeps, always knows the right answer, and grows with your business.</p>
+      <ul>
+        <li>✅ We build it for you. No setup stress.</li>
+        <li>✅ We update it for you. No tech headaches.</li>
+        <li>✅ We support you directly. No support queues.</li>
+      </ul>
+      <p class="highlight">If one extra customer walks in per month because of your chatbot, it already pays for itself.</p>
+    </section>
 
-    <h3 style="font-size: 1.8rem; margin-top: 30px;">Programs We Offer</h3>
-    <p><strong>MMA:</strong> A hybrid system combining striking and grappling — great for self-defense, competition, and full-body fitness.</p>
-    <p><strong>Kickboxing:</strong> High-intensity cardio and striking classes that burn calories, tone muscle, and sharpen reflexes.</p>
-    <p><strong>Karate:</strong> A traditional martial art focused on discipline, technique, and inner balance. Ideal for youth and adults alike.</p>
+    <section class="about">
+      <h2>About CSCSHub</h2>
+      <p>CSCSHub helps businesses build powerful chatbots with personalized logic, website integration, and hands-on support. We’re not a DIY tool — we’re your automation partner.</p> <br>Contact me for any more information at cscshubs@gmail.com
+    </section>
 
-    <h3 style="font-size: 1.8rem; margin-top: 40px;">View Weekly Class Schedule</h3>
-    <p style="font-size: 1.05rem; color: var(--text-muted);">Select a program to view its weekly class schedule.</p>
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q:</strong> Do I need to know how to code?<br><strong>A:</strong> Nope. We handle everything for you.</p>
+      <p><strong>Q:</strong> Can I upgrade from Basic to Premium later?<br><strong>A:</strong> Absolutely. We’ll apply your original setup fee to the upgrade.</p>
+      <p><strong>Q:</strong> What industries is this good for?<br><strong>A:</strong> Martial arts studios, service-based businesses, and more.</p>
+    </section>
 
-    <select id="programSelect" onchange="renderProgramSchedule()">
-      <option value="">-- Select a Program --</option>
-      <option value="mma">MMA</option>
-      <option value="kickboxing">Kickboxing</option>
-      <option value="karate">Karate</option>
-    </select>
+    <div>
+      <h3>💸 Will Premium Pay Off?</h3>
+      <label>Average Value of 1 New Customer: $<input id="value" type="number" value="100"></label><br>
+      <label>New Customers Per Month from Chatbot: <input id="num" type="number" value="2"></label><br><br>
+      <button onclick="calcROI()">Calculate ROI</button>
+      <p id="result"></p>
+    </div>
 
-    <div id="scheduleDisplay"></div>
-  </section>
+   
+
+  </div>
 
   <footer>
-    &copy; 2025 Mock Martial Arts Studio. All rights reserved.
+    <section class="faq">
+      <h2>Legal Info</h2>
+      <p>We respect your privacy and operate within full compliance of Canadian standards. <a href="https://cscshub.com/termsofservice">Terms of Service</a> | <a href="https://cscshub.com/privacypolicy">Privacy Policy</a></p>
+    </section>
+    <p>&copy; 2025 CSCSHub. All rights reserved.</p>
   </footer>
 
   <script>
-    const allSchedules = {
-      monday: [
-        ["Karate", "9:00 AM", "Kids – Ages 6–10 – Coach Hana"],
-        ["Kickboxing", "12:00 PM", "All Levels – Coach Ray"],
-        ["MMA", "5:00 PM", "Fundamentals – Beginners – Coach Alex"],
-        ["Karate", "6:30 PM", "Teens – Ages 11–15 – Coach Hana"],
-        ["Karate", "8:00 PM", "Adults – All Ranks – Coach Mark"]
-      ],
-      tuesday: [
-        ["Kickboxing", "9:00 AM", "Conditioning – Coach Ray"],
-        ["Karate", "12:00 PM", "Teens – Coach Hana"],
-        ["Kickboxing", "5:00 PM", "Advanced – Coach Leo"],
-        ["MMA", "6:30 PM", "Striking – Coach Alex"],
-        ["MMA", "8:00 PM", "Open Mat – Staff Supervised"]
-      ],
-      wednesday: [
-        ["Karate", "9:00 AM", "Kids – Coach Hana"],
-        ["MMA", "12:00 PM", "Open Mat (Free Practice)"],
-        ["MMA", "5:00 PM", "Fundamentals – Coach Alex"],
-        ["Karate", "6:30 PM", "Black Belt Class – Coach Mark"],
-        ["Karate", "8:00 PM", "Women’s Self Defense – Coach Nina"]
-      ],
-      thursday: [
-        ["Kickboxing", "9:00 AM", "Beginners – Coach Ray"],
-        ["Kickboxing", "12:00 PM", "Teens – Coach Leo"],
-        ["MMA", "5:00 PM", "Grappling Focus – Coach Alex"],
-        ["Karate", "6:30 PM", "Forms & Sparring – Coach Hana"],
-        ["Karate", "8:00 PM", "Black Belt Sparring – Invite only"]
-      ],
-      friday: [
-        ["Karate", "9:00 AM", "Kids – Coach Hana"],
-        ["Kickboxing", "12:00 PM", "General – Coach Ray"],
-        ["MMA", "5:00 PM", "Striking Drills – Coach Alex"],
-        ["MMA", "6:30 PM", "Mixed Skills – All Programs Open Gym"],
-        ["Karate", "8:00 PM", "Youth Sparring – Coach Mark"]
-      ],
-      saturday: [
-        ["Karate", "10:00 AM", "All-Ages Workshop – Coach Hana"],
-        ["Kickboxing", "12:00 PM", "Power Class – Coach Ray"],
-        ["MMA", "2:00 PM", "Youth MMA – Coach Alex"],
-        ["Karate", "4:00 PM", "Self Defense Crash Course – Coach Nina"],
-        ["MMA", "6:00 PM", "Open Sparring (All Levels) – Staff Supervised"]
-      ]
-    };
-
-    function renderProgramSchedule() {
-      const selected = document.getElementById("programSelect").value;
-      const display = document.getElementById("scheduleDisplay");
-      if (!selected) {
-        display.innerHTML = '';
-        return;
-      }
-
-      let output = `<h4>${selected.toUpperCase()} Weekly Schedule</h4><ul>`;
-      for (let day in allSchedules) {
-        const filtered = allSchedules[day].filter(([type]) => type.toLowerCase() === selected);
-        if (filtered.length > 0) {
-          output += `<li style="margin-bottom: 1rem;"><strong>${capitalize(day)}</strong><ul>`;
-          filtered.forEach(([_, time, desc]) => {
-            output += `<li><strong>${time}</strong> — ${desc}</li>`;
-          });
-          output += `</ul></li>`;
-        }
-      }
-      output += `</ul>`;
-      display.innerHTML = output;
-    }
-
-    function capitalize(word) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
+    function calcROI() {
+      const value = parseFloat(document.getElementById('value').value);
+      const num = parseInt(document.getElementById('num').value);
+      const income = value * num;
+      const cost = 199;
+      const result = income - cost;
+      document.getElementById('result').innerText =
+        result > 0
+        ? `✅ You're making a profit of $${result}/mo!`
+        : `⚠️ You're losing $${-result}/mo. Adjust your inputs.`;
     }
   </script>
-  
-    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/04/12/17/20250412172230-2LP5RVS8.js"></script>
-    
+  <script>
+  function toggleLegal() {
+    const section = document.getElementById('legal-section');
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function calcROI() {
+    const value = parseFloat(document.getElementById('value').value);
+    const num = parseInt(document.getElementById('num').value);
+    const income = value * num;
+    const cost = 199;
+    const result = income - cost;
+    document.getElementById('result').innerText =
+      result > 0
+        ? `✅ You're making a profit of $${result}/mo!`
+        : `⚠️ You're losing $${-result}/mo. Adjust your inputs.`;
+  }
+</script>
+
 </body>
 </html>

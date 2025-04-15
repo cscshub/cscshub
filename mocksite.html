@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mock Martial Arts Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --fg: #f0f0f0;
+      --nav-hover: rgba(255, 255, 255, 0.1);
+      --card-bg: #1a1a1a;
+      --text-muted: #bbb;
+      --accent: #2b72ff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111;
+      color: white;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    nav a:hover {
+      background: var(--nav-hover);
+      color: var(--fg);
+    }
+    .mode-toggle {
+      cursor: pointer;
+      font-size: 0.85rem;
+      background: var(--nav-hover);
+      color: var(--fg);
+      border: none;
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
+    footer {
+      background: var(--card-bg);
+      padding: 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    #scheduleDisplay ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #scheduleDisplay li {
+      margin-bottom: 0.6rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mock Studio</h1>
+    <nav>
+  <a href="mocksite.html">Home</a>
+      <a href="mma.html">MMA</a>
+      <a href="kickboxing.html">Kickboxing</a>
+      <a href="karate.html">Karate</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html">Chatbot Pricing</a>
+      <button class="mode-toggle" onclick="document.body.classList.toggle('light')">🌙 Toggle</button>
+    </nav>
+  </header>
+
+  <section style="text-align: center; padding: 70px 20px 40px; background: linear-gradient(135deg, var(--bg), var(--card-bg));">
+    <h2 style="font-size: 2.2rem; font-weight: 600; margin-bottom: 15px;">Welcome to Mock Martial Arts Studio</h2>
+    <p style="max-width: 700px; margin: 0 auto; font-size: 1.05rem; color: var(--text-muted);">
+      This is just a mock website setup as a Demo for the Chatbot! <br> Please view the "CHATBOT PRICING" tab for more information on this product.
+    </p>
+    <div style="margin-top: 30px;">
+      <a href="contact.html" style="text-decoration: none; color: white; background-color: var(--accent); padding: 12px 20px; border-radius: 12px; font-weight: 500;">Contact Us</a>
+    </div>
+  </section>
+
+  <section style="padding: 50px 20px; max-width: 1000px; margin: auto;">
+    <h3 style="font-size: 1.8rem; margin-bottom: 15px;">About Our Studio</h3>
+    <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px;">
+      Mock Martial Arts is a modern martial arts facility committed to personal growth through discipline, fitness, and skill. With expert coaches and a welcoming atmosphere, we support every student’s journey — whether you're here to get in shape, learn self-defense, or compete.
+    </p>
+
+    <h3 style="font-size: 1.8rem; margin-top: 30px;">Programs We Offer</h3>
+    <p><strong>MMA:</strong> A hybrid system combining striking and grappling — great for self-defense, competition, and full-body fitness.</p>
+    <p><strong>Kickboxing:</strong> High-intensity cardio and striking classes that burn calories, tone muscle, and sharpen reflexes.</p>
+    <p><strong>Karate:</strong> A traditional martial art focused on discipline, technique, and inner balance. Ideal for youth and adults alike.</p>
+
+    <h3 style="font-size: 1.8rem; margin-top: 40px;">View Weekly Class Schedule</h3>
+    <p style="font-size: 1.05rem; color: var(--text-muted);">Select a program to view its weekly class schedule.</p>
+
+    <select id="programSelect" onchange="renderProgramSchedule()">
+      <option value="">-- Select a Program --</option>
+      <option value="mma">MMA</option>
+      <option value="kickboxing">Kickboxing</option>
+      <option value="karate">Karate</option>
+    </select>
+
+    <div id="scheduleDisplay"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 Mock Martial Arts Studio. All rights reserved.
+  </footer>
+
+  <script>
+    const allSchedules = {
+      monday: [
+        ["Karate", "9:00 AM", "Kids – Ages 6–10 – Coach Hana"],
+        ["Kickboxing", "12:00 PM", "All Levels – Coach Ray"],
+        ["MMA", "5:00 PM", "Fundamentals – Beginners – Coach Alex"],
+        ["Karate", "6:30 PM", "Teens – Ages 11–15 – Coach Hana"],
+        ["Karate", "8:00 PM", "Adults – All Ranks – Coach Mark"]
+      ],
+      tuesday: [
+        ["Kickboxing", "9:00 AM", "Conditioning – Coach Ray"],
+        ["Karate", "12:00 PM", "Teens – Coach Hana"],
+        ["Kickboxing", "5:00 PM", "Advanced – Coach Leo"],
+        ["MMA", "6:30 PM", "Striking – Coach Alex"],
+        ["MMA", "8:00 PM", "Open Mat – Staff Supervised"]
+      ],
+      wednesday: [
+        ["Karate", "9:00 AM", "Kids – Coach Hana"],
+        ["MMA", "12:00 PM", "Open Mat (Free Practice)"],
+        ["MMA", "5:00 PM", "Fundamentals – Coach Alex"],
+        ["Karate", "6:30 PM", "Black Belt Class – Coach Mark"],
+        ["Karate", "8:00 PM", "Women’s Self Defense – Coach Nina"]
+      ],
+      thursday: [
+        ["Kickboxing", "9:00 AM", "Beginners – Coach Ray"],
+        ["Kickboxing", "12:00 PM", "Teens – Coach Leo"],
+        ["MMA", "5:00 PM", "Grappling Focus – Coach Alex"],
+        ["Karate", "6:30 PM", "Forms & Sparring – Coach Hana"],
+        ["Karate", "8:00 PM", "Black Belt Sparring – Invite only"]
+      ],
+      friday: [
+        ["Karate", "9:00 AM", "Kids – Coach Hana"],
+        ["Kickboxing", "12:00 PM", "General – Coach Ray"],
+        ["MMA", "5:00 PM", "Striking Drills – Coach Alex"],
+        ["MMA", "6:30 PM", "Mixed Skills – All Programs Open Gym"],
+        ["Karate", "8:00 PM", "Youth Sparring – Coach Mark"]
+      ],
+      saturday: [
+        ["Karate", "10:00 AM", "All-Ages Workshop – Coach Hana"],
+        ["Kickboxing", "12:00 PM", "Power Class – Coach Ray"],
+        ["MMA", "2:00 PM", "Youth MMA – Coach Alex"],
+        ["Karate", "4:00 PM", "Self Defense Crash Course – Coach Nina"],
+        ["MMA", "6:00 PM", "Open Sparring (All Levels) – Staff Supervised"]
+      ]
+    };
+
+    function renderProgramSchedule() {
+      const selected = document.getElementById("programSelect").value;
+      const display = document.getElementById("scheduleDisplay");
+      if (!selected) {
+        display.innerHTML = '';
+        return;
+      }
+
+      let output = `<h4>${selected.toUpperCase()} Weekly Schedule</h4><ul>`;
+      for (let day in allSchedules) {
+        const filtered = allSchedules[day].filter(([type]) => type.toLowerCase() === selected);
+        if (filtered.length > 0) {
+          output += `<li style="margin-bottom: 1rem;"><strong>${capitalize(day)}</strong><ul>`;
+          filtered.forEach(([_, time, desc]) => {
+            output += `<li><strong>${time}</strong> — ${desc}</li>`;
+          });
+          output += `</ul></li>`;
+        }
+      }
+      output += `</ul>`;
+      display.innerHTML = output;
+    }
+
+    function capitalize(word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+  </script>
+  
+    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/04/12/17/20250412172230-2LP5RVS8.js"></script>
+    
+</body>
+</html>
