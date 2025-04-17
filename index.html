@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CSCSHub Pricing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>CSCSHub — Your AI Chat Partner</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
       --bg: #0f0f0f;
@@ -12,100 +15,183 @@
       --muted: #9ca3af;
       --accent: #3b82f6;
       --card: #1e1e1e;
+      --highlight: rgba(59,130,246,0.3);
+      --gold: #facc15;
     }
-
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--fg);
+      line-height: 1.6;
     }
-
-    header {
-      padding: 1rem 2rem;
-      background: var(--card);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .nav {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      color: var(--fg);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 0.75rem;
+    a { color: var(--accent); text-decoration: none; }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
       border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .container { max-width: 960px; margin: auto; padding: 2rem; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
+    }
+    .logo-top {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  height: 220px;   /* doubled from 120px */
+  width: auto;
+  
+}
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin: 0 1rem 0.5rem;
+      line-height: 1.1;
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 1rem;
     }
 
-    .nav a:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    h1, h2, h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    .pricing-table {
+    /* Pricing Teaser */
+    .pricing-teaser {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
       gap: 2rem;
-      margin: 2rem 0;
+      margin: 2rem 1rem;
     }
-
     .plan {
       background: var(--card);
       border-radius: 12px;
       padding: 2rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      text-align: center;
+      cursor: pointer;
+      transition: box-shadow .2s, border-color .2s;
     }
-
-    .featured {
+    .plan:not(.active):hover {
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    }
+    .plan.active {
       border: 2px solid var(--accent);
+      box-shadow: 0 0 20px var(--highlight);
     }
-
-    .price {
+    .plan h3 { margin-top: 0; }
+    .plan .price {
       font-size: 1.6rem;
       margin: 0.75rem 0;
     }
-
-    .note {
+    .plan .note {
       font-size: 0.9rem;
       color: var(--muted);
     }
+    /* Basic tier text in blue */
+    .plan[data-tier="basic"] h3,
+    .plan[data-tier="basic"] .price {
+      color: var(--accent);
+    }
+    /* Premium tier text in gold */
+    .plan[data-tier="premium"] h3,
+    .plan[data-tier="premium"] .price {
+      color: var(--gold);
+    }
 
-    .why-choose, .about, .faq {
+    /* Tier Details */
+    .tier-details {
       background: var(--card);
       padding: 2rem;
       border-radius: 12px;
-      margin-top: 2rem;
+      margin: 2rem 1rem;
     }
-
-    .why-choose ul {
+    .tier-details.basic h2 {
+      color: var(--accent);
+    }
+    .tier-details.premium h2 {
+      color: var(--gold);
+    }
+    .tier-details h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .tier-details ul {
       padding-left: 1.2rem;
     }
-
-    input {
-      padding: 0.4rem;
-      margin: 0.4rem 0;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
+    .tier-details li {
+      margin: 0.5rem 0;
     }
 
-    button {
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 2rem;
+      margin: 0 auto 4rem;
+    }
+    .card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .card h3 {
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Why CSCSHub */
+    .why-cscshub {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 0 auto 4rem;
+      max-width: 960px;
+    }
+    .why-cscshub h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+      font-size: 1.75rem;
+    }
+    .why-cscshub ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+    .why-cscshub li {
+      margin: 0.75rem 0;
+      font-weight: 500;
+    }
+
+    /* ROI Calculator */
+    .calculator {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin: 0 auto 4rem;
+      max-width: 960px;
+    }
+    .calculator input {
+      width: 5rem;
+      padding: 0.3rem;
+      border: none;
+      border-radius: 4px;
+      margin: 0 0.5rem;
+    }
+    .calculator button {
       background: var(--accent);
       color: #fff;
       border: none;
@@ -113,144 +199,194 @@
       font-size: 1rem;
       border-radius: 6px;
       cursor: pointer;
+      margin-top: 1rem;
     }
-
-    #result {
+    .calculator p#result {
       margin-top: 1rem;
       font-weight: 600;
     }
 
-    .legal-link {
+    /* Footer */
+    footer {
       text-align: center;
-      margin-top: 2rem;
+      padding: 2rem 1rem;
+      background: var(--card);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    footer .legal-links a {
+      margin: 0 0.5rem;
+      color: var(--fg);
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav class="nav">
-      
-   <a href="mocksite.html">→ Test Me! ← </a>
-    </nav>
-    <h1>CSCSHub Chatbot Pricing</h1>
-    <p>Two powerful options. One smarter business.</p>
+
+  <!-- Hero -->
+  <header class="hero">
+    <img src="assets/logo.png" alt="CSCS Hub Logo" class="logo-top">
+    <h1>Your 24/7 AI Chat Partner</h1>
+    <p>We build, integrate, and manage smart chatbots so you can focus on running your business.</p>
+    <button class="btn" onclick="location.href='https://cscshub.com/mocksite'">
+      Try the Demo →
+    </button>
   </header>
 
-  <div class="container">
-    <div class="pricing-table">
-      <div class="plan basic">
-        <h3>Basic</h3>
-        <p class="price">$299 Setup + <span class="setup">$99/mo</span></p>
-        <p>AI assistant to guide users through your website seamlessly</p>
-        <p>Installed on your website</p>
-        <p>Light edits after launch</p>
-        <p>Email-only support</p>
-        <p class="note">Does include ongoing optimization</p>
-      </div>
-
-  <di<div class="plan premium featured" style="position: relative; border: 2px solid gold; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); background: linear-gradient(133deg, #1f1f1f, #2b2b2b);">
-  <div style="
-    position: absolute;
-    top: -18px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: gold;
-    color: black;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 20px;
-    box-shadow: 0 0 5px gold;
-    letter-spacing: 0.5px;
-  ">Premium Tier</div>
-
-  <h3 style="color: gold;">Premium</h3>
-  <p class="price" style="color: #facc15;">$499 Setup + $199/mo</p>
-  <p>Tailored AI assistant with advanced logic</p>
-  <p>Full integration & hands-free updates</p>
-  <p>Priority white-glove support (24/7)</p>
-  <p>Performance analytics & ongoing optimization</p>
-  <p class="note" style="color: gold;">Designed for growth-minded pros</p>
-</div>
-
-
-
+  <!-- Pricing -->
+  <section class="pricing-teaser">
+    <div class="plan active" data-tier="basic">
+      <h3>Basic</h3>
+      <p class="price">$299 Setup + <span class="setup">$99/mo</span></p>
+Chatbot setup & configuration      <p>Basic AI bot to seamlessly guide users and answer any question.</p>
+      <p></p>
+      <p>Monthly performance report</p>      
+      <p class="note"></p>
     </div>
+    <div class="plan" data-tier="premium">
+      <div style="
+        position:absolute; top:-18px; left:50%;
+        transform:translateX(-50%);
+        background:var(--accent); color:#000;
+        padding:4px 12px; border-radius:12px;
+        font-size:0.8rem; font-weight:600;
+      ">Premium Tier</div>
+      <h3>Premium</h3>
+      <p class="price">$499 Setup + $199/mo</p>
+      <p>Initial chatbot setup & configuration + Unlimited Change Requests</p>
+       <p>Custom conversational flows & decision trees</p>
+      <p>Handles Bookings + Orders</p>
+      <p class="note">Designed for growth‑minded pros</p>
+    </div>
+  </section>
 
-    <section class="why-choose">
-      <h2>Why Go Premium?</h2>
-      <p>You’re not buying a chatbot — you’re hiring a digital assistant who never sleeps, always knows the right answer, and grows with your business.</p>
+  <!-- Tier Details -->
+  <section id="tier-details" class="tier-details basic">
+    <h2>What’s Included in Basic</h2>
+    <ul id="tier-list">
+      <li>- Basic branding (logo, colors, welcome message)</li>
+      <li>- Light edits </li>
+      <li>- Ongoing basic optimization</li>
+    </ul>
+  </section>
+
+  <div class="container">
+    <!-- Services -->
+    <section class="services">
+      <div class="card">
+        <h3>Seamless Setup</h3>
+        <p>No coding required—our team implements everything for you.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Chat Logic</h3>
+        <p>FAQ flows, lead capture, bookings—all tailored to your studio.</p>
+      </div>
+      <div class="card">
+        <h3>Ongoing Optimization</h3>
+        <p>We monitor performance and refine your chatbot over time.</p>
+      </div>
+      <div class="card">
+        <h3>Priority Support</h3>
+        <p>Email‑only support for Basic, 24/7 white‑glove for Premium.</p>
+      </div>
+      <div class="card">
+        <h3>Analytics & Insights</h3>
+        <p>See who’s engaging, track conversions.</p>
+      </div>
+      <!-- Additional services -->
+            <div class="card">
+        <h3>Booking Automation</h3>
+        <p>Seamlessly schedule appointments without lifting a finger.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Branding</h3>
+        <p>Make the chatbot match your studio’s look and feel.</p>
+      </div>
+    </section>
+
+    <!-- Why CSCSHub? -->
+    <section class="why-cscshub">
+      <h2>Why CSCSHub?</h2>
       <ul>
-        <li>✅ We build it for you. No setup stress.</li>
-        <li>✅ We update it for you. No tech headaches.</li>
-        <li>✅ We support you directly. No support queues.</li>
+        <li>✔ We handle end‑to‑end setup—no tech headaches.</li>
+        <li>✔ Your chatbot learns and grows with your business.</li>
+        <li>✔ AI‑driven messaging that converts visitors into customers.</li>
+        <li>✔ A digital assistant that never sleeps—and never misses a lead.</li>
       </ul>
-      <p class="highlight">If one extra customer walks in per month because of your chatbot, it already pays for itself.</p>
     </section>
 
-    <section class="about">
-      <h2>About CSCSHub</h2>
-      <p>CSCSHub helps businesses build powerful chatbots with personalized logic, website integration, and hands-on support. We’re not a DIY tool — we’re your automation partner.</p> <br>Contact me for any more information at cscshubs@gmail.com
-    </section>
-
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
-      <p><strong>Q:</strong> Do I need to know how to code?<br><strong>A:</strong> Nope. We handle everything for you.</p>
-      <p><strong>Q:</strong> Can I upgrade from Basic to Premium later?<br><strong>A:</strong> Absolutely. We’ll apply your original setup fee to the upgrade.</p>
-      <p><strong>Q:</strong> What industries is this good for?<br><strong>A:</strong> Martial arts studios, service-based businesses, and more.</p>
-    </section>
-
-    <div>
+    <!-- ROI Calculator -->
+    <section class="calculator">
       <h3>💸 Will Premium Pay Off?</h3>
-      <label>Average Value of 1 New Customer: $<input id="value" type="number" value="100"></label><br>
-      <label>New Customers Per Month from Chatbot: <input id="num" type="number" value="2"></label><br><br>
+      <label>
+        Average Value of 1 New Customer: $
+        <input id="value" type="number" value="100">
+      </label><br><br>
+      <label>
+        New Customers Per Month from Chatbot:
+        <input id="num" type="number" value="2">
+      </label><br><br>
       <button onclick="calcROI()">Calculate ROI</button>
       <p id="result"></p>
-    </div>
-
-   
-
+    </section>
   </div>
 
+  <!-- Footer -->
   <footer>
-    <section class="faq">
-      <h2>Legal Info</h2>
-      <p>We respect your privacy and operate within full compliance of Canadian standards. <a href="https://cscshub.com/termsofservice">Terms of Service</a> | <a href="https://cscshub.com/privacypolicy">Privacy Policy</a></p>
-    </section>
+    <p>Questions? Email us at <a href="mailto:cscshubs@gmail.com">cscshubs@gmail.com</a></p>
+    <div class="legal-links">
+      <a href="https://cscshub.com/termsofservice" target="_blank">Terms of Service</a> |
+      <a href="https://cscshub.com/privacypolicy" target="_blank">Privacy Policy</a>
+    </div>
     <p>&copy; 2025 CSCSHub. All rights reserved.</p>
   </footer>
 
   <script>
+    // Tier switching logic
+    const tierData = {
+      basic: {
+        title: "What’s Included in Basic",
+        items: [
+          "- Email‑only support",
+          "- Light edits after launch",
+          "- Ongoing basic optimization"
+        ]
+      },
+      premium: {
+        title: "What’s Included in Premium",
+        items: [
+          "- Monthly performance report  ",
+          "- Tailored AI assistant with advanced logic",
+          "- 24/7 Support"
+        ]
+      }
+    };
+    document.querySelectorAll('.plan').forEach(plan => {
+      plan.addEventListener('click', () => {
+        document.querySelectorAll('.plan').forEach(p => p.classList.remove('active'));
+        plan.classList.add('active');
+        const tier = plan.dataset.tier;
+        const details = document.getElementById('tier-details');
+        details.classList.remove('basic','premium');
+        details.classList.add(tier);
+        const data = tierData[tier];
+        details.querySelector('h2').innerText = data.title;
+        document.getElementById('tier-list').innerHTML =
+          data.items.map(i => `<li>${i}</li>`).join('');
+      });
+    });
+
+    // ROI calculator
     function calcROI() {
       const value = parseFloat(document.getElementById('value').value);
-      const num = parseInt(document.getElementById('num').value);
+      const num   = parseInt  (document.getElementById('num').value, 10);
       const income = value * num;
-      const cost = 199;
+      const cost   = 199;
       const result = income - cost;
       document.getElementById('result').innerText =
         result > 0
-        ? `✅ You're making a profit of $${result}/mo!`
-        : `⚠️ You're losing $${-result}/mo. Adjust your inputs.`;
+          ? `✅ You're making a profit of $${result}/mo!`
+          : `⚠️ You're losing $${-result}/mo. Adjust your inputs.`;
     }
   </script>
-  <script>
-  function toggleLegal() {
-    const section = document.getElementById('legal-section');
-    section.style.display = section.style.display === 'none' ? 'block' : 'none';
-  }
-
-  function calcROI() {
-    const value = parseFloat(document.getElementById('value').value);
-    const num = parseInt(document.getElementById('num').value);
-    const income = value * num;
-    const cost = 199;
-    const result = income - cost;
-    document.getElementById('result').innerText =
-      result > 0
-        ? `✅ You're making a profit of $${result}/mo!`
-        : `⚠️ You're losing $${-result}/mo. Adjust your inputs.`;
-  }
-</script>
-
 </body>
 </html>
